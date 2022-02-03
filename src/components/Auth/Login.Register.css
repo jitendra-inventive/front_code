@@ -1,0 +1,19 @@
+.loginSection {
+    width: 100%;
+    display: inline-grid;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+.login_box {
+    width: 400px;
+    padding: 20px 50px;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background: #fbfbfb;
+    box-shadow: 0 0px 2px #2e2e2e57;
+}
+.form-group {
+    margin-bottom: 20px;
+}
