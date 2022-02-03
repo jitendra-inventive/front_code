@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { DataGrid } from '@mui/x-data-grid';
 import account from '../../api/account';
 import Title from '../Partial/Title';
+import Logout from "../Auth/Logout";
 import './Dashboard.css';
 const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
@@ -25,35 +26,30 @@ const columns = [
     },
   ];
 const rows = [
-    { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-    { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-    { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-    { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-    { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-    { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-    { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
+    { id: 1, firstName: 'Jiten', lastName: 'G', age: 35 },
+    { id: 2, firstName: 'Ramesh', lastName: 'Kumar', age: 42 },
+    { id: 3, firstName: 'Veeru', lastName: 'Dev', age: 45 },
   ];
 const Dashboard = () => { 
   const history = useNavigate();
-  if (!localStorage.getItem("user")) {
-    history("/");
-  }
     useEffect( async () => {
+      if (!localStorage.getItem("user")) {
+        history("/");
+      }
         const userData = await account();
         console.log(userData);
     }, [window.location.pathname])
     return (
       <section className="dataLayout">
-        <div style={{ height: 400, width: '100%' }}>
-        <Title title="Dashboard"/>
+        <div style={{ height: 300, width: '100%' }}>
+          <Title title="Dashboard"/>
           <DataGrid
             rows={rows}
             columns={columns}
-            pageSize={5}
-            rowsPerPageOptions={[5]}
+            pageSize={2}
+            rowsPerPageOptions={[2]}
           />
+          <Logout name="Logout" />
         </div>
       </section>
       );

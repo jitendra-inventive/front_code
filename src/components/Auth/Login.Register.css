@@ -17,3 +17,12 @@
 .form-group {
     margin-bottom: 20px;
 }
+button.logoutBtn {
+    background: #ff295a;
+    color: #fff;
+    padding: 7px 30px;
+    margin-top: 50px;
+}
+button.logoutBtn:hover {
+    color: #ff295a;
+}

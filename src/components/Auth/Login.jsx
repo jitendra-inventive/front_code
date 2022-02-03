@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { notify } from 'react-notify-toast';
 import login from "../../api/auth/login";
@@ -11,9 +11,11 @@ const Login = () => {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const history = useNavigate();
-  if (localStorage.getItem("user")) {
-    history("/dashboard");
-  } 
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      history("/dashboard");
+    } 
+  }, [window.location.pathname]);
   const auth = async () => {
     let payload = { email: email, password: password };
 
